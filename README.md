@@ -1,6 +1,4 @@
 # TO NOTE
-this repository contains solutions to some of the problems of leetcode
-
+this repository contains solutions to some of the problems of leetcode<br>
 the submissions are made in java
-
-some questions from contests and premium content are also included
+<br>some questions from contests and premium content are also included
