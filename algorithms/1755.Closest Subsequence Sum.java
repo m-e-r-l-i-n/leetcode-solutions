@@ -1,7 +1,7 @@
 class Solution {
     public int minAbsDifference(int[] nums, int goal) {
         int n=nums.length;
-        if(n==1) return Math.abs(nums[0]-goal);
+        if(n==1) return Math.min(Math.abs(nums[0]-goal),Math.abs(goal));
         ArrayList<Integer> t=new ArrayList<>();
         int i;
         for(i=0;i<n/2;i++)
