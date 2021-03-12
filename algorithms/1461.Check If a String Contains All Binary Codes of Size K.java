@@ -1,16 +1,19 @@
 class Solution {
     public boolean hasAllCodes(String s, int k) {
-        int i,j,size=(int)Math.pow(2,k);
-        char c[]=s.toCharArray();
-        HashMap<String,Integer> hm=new HashMap<>();
-        for(i=0;i<=s.length()-k;i++)
+        if(s.length()<k) return false;
+        int m=1<<k,i,c=0,and=(1<<(k-1))-1;
+        boolean v[]=new boolean[m];
+        for(i=0;i<k;i++)
+        c=c*2+s.charAt(i)-'0';
+        v[c]=true; m--;
+        for(;i<s.length();i++)
         {
-            String st=""; int t=0;
-            for(j=i;t<k;j++,t++)
-            st+=c[j];
-            if(hm.get(st)==null) hm.put(st,1);
-            if(hm.size()==size) return true;    
-        }   
+            c&=and;
+            c=2*c+s.charAt(i)-'0';
+            if(!v[c]) m--;
+            v[c]=true;
+            if(m==0) return true;
+        }
         return false;
     }
 }
