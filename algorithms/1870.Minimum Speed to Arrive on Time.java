@@ -1,18 +1,13 @@
 class Solution {
-    public int minSpeedOnTime(int[] a, double hour) {
-        int l=1,r=(int)1e9,m,ans=-1; long hr=(long)Math.ceil(hour*100); double last=a[a.length-1];
+    public int minSpeedOnTime(int[] a, double hr) {
+        int l=1,r=(int)1e7,m,ans=-1;
         while(l<=r)
         {
             m=(l+r)>>1;
-            long time=0; int i;
+            double time=0; int i;
             for(i=0;i<a.length-1;i++)
-            {
-                time+=a[i]/m;
-                if(a[i]%m!=0) time++;
-            }
-            time*=100;
-            time+=(int)Math.ceil(last/m*100);
-            //System.out.println(m+" "+time+" "+hr);
+            time+=Math.ceil(1.0*a[i]/m);
+            time+=1.0*a[a.length-1]/m;
             if(time<=hr)
             {
                 ans=m;
