@@ -22,7 +22,6 @@ class Solution {
             while(st.peek()!=n && a[st.peek()]<a[i])    //do not recount subarrays
             st.pop();
             max[i]*=st.peek()-i;
-            // max[i]%=M;
             st.add(i);
         }
         
@@ -42,7 +41,6 @@ class Solution {
             while(st.peek()!=n && a[st.peek()]>a[i])
             st.pop();
             min[i]*=st.peek()-i;
-            // min[i]%=M;
             st.add(i);
         }
         
