@@ -48,8 +48,7 @@ class Solution {
         
         long ans=0;
         for(i=0;i<n;i++)    //add maxima and subtract minima
-        // ans=(ans+(max[i]-min[i]+M)%M*a[i]%M+M)%M;
-        	ans=(ans+(max[i]-min[i])*a[i]);
+        ans=(ans+(max[i]-min[i])*a[i]);
         return ans;
     }
 }
