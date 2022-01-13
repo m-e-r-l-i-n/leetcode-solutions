@@ -1,5 +1,5 @@
 //Tamonash Chakraborty
-//O(n*log(max(buckets[i]*1e7)))
+//O(n*log(max(buckets[i]*1e9)))
 class Solution {
     public double equalizeWater(int[] buckets, int loss) {
         int n=buckets.length,i;
