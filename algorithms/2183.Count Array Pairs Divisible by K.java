@@ -1,7 +1,7 @@
 //Tamonash Chakraborty
 //O(n*factors(k)) ~ O(n*pow(k,1/3))
 class Solution {
-    public long coutPairs(int[] nums, int k) {
+    public long countPairs(int[] nums, int k) {
         HashMap<Integer,Integer> f=new HashMap<>(); //store count of factors
         int i;
         for(i=1;i*i<=k;i++) //get factors
