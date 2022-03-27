@@ -1,21 +1,17 @@
 class Solution {
     public int minSwaps(String s) {
-        int ans=Math.min(count(s,'0','1'),count(s,'1','0'));
-        if(ans==Integer.MAX_VALUE) ans=-1;
-        return ans;
-    }
-    
-    int count(String s,int a,int b)
-    {
-        int ca=0,cb=0,i,n=s.length();
+        int n=s.length(),i,c[][]=new int[2][2];
         for(i=0;i<n;i++)
-        if(s.charAt(i)==a) ca++;
-        else cb++;
-        if((ca-cb)!=0 && (ca-cb)!=1) return Integer.MAX_VALUE;
-        int ans=0;
-        for(i=0;i<n;i+=2)
-        if(s.charAt(i)==a) ans++;
-        ans=(n+1)/2-ans;
+        c[i%2][s.charAt(i)-'0']++;
+        if(Math.abs(c[0][0]+c[1][0]-c[0][1]-c[1][1])>1) return -1;
+        
+        int ans;
+        if(n%2==1)
+        {
+            if(c[0][0]+c[1][0]>c[0][1]+c[1][1]) ans=c[0][1];
+            else ans=c[0][0];
+        }
+        else ans=Math.min(c[0][0],c[0][1]);
         return ans;
     }
 }
